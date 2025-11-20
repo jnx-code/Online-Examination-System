@@ -1,76 +1,201 @@
-# Online-Examination-System
-Online Examination System is a web-based platform for creating, managing, and conducting online tests. It includes secure login, role-based access, exam creation, question management, timed tests, auto-evaluation, and instant results. Designed for students and admins to ensure a smooth exam experience.
+📘 ONLINE EXAMINATION SYSTEM
+Academic / College Project – Python | Streamlit | MySQL
+📌 1. Project Overview
 
-🚀 Key Features
-🔐 Authentication & User Roles
+The Online Examination System is a web-based application developed using Python, Streamlit, and MySQL.
+It allows educational institutions to conduct exams online in a secure, automated, and user-friendly manner.
 
-Secure login & registration
+The system supports two roles:
 
-Role-based access (Admin & Student)
+Admin – Create exams, add questions, view results
 
-📝 Exam Management (Admin)
+Student – Register, log in, attempt exams, view scores
 
-Create, update, and delete exams
+The project focuses on replacing manual examinations with a digital, fast, and efficient system.
 
-Add questions (MCQ )
+📌 2. Abstract
 
-Set exam duration, total marks, and passing criteria
+Traditional exams involve manual question paper creation, checking answer sheets, and maintaining physical records.
+This system automates the entire exam process, including exam creation, question management, and automatic evaluation.
 
-Assign exams to students or batches
+It enhances efficiency, accuracy, and accessibility while reducing human effort and errors.
 
-🎓 Student Interface
+📌 3. Features
+👨‍💼 Admin Features
 
-Dashboard showing available & attempted exams
+Admin login
 
-Countdown timer during exams
+Create exams
 
-Prevents multiple submissions
+Add MCQ questions to exams
 
-📊 Result & Reports
+View all exams
 
-Auto-evaluation of MCQ questions
+View all student results
 
-Score calculation & result generation
+Delete exams
 
-Downloadable reports 
+🎓 Student Features
 
-⚙️ System Workflow
+Registration & Login
 
-Admin creates exam → adds questions
+View available exams
 
-Students log in → attempt test
+Attempt exams (MCQs)
 
-System evaluates answers automatically
+Auto-score calculation
 
-Results generated instantly
+View detailed performance report
 
-🛠️ Tech Stack 
+📌 4. Technology Stack
+Frontend
 
-Frontend: streamlit
-Backend: Python
-Database: MySQL
-Deployment: GitHub / Localhost
+Streamlit
 
-📁 Project Structure 
-online.py
-🎯 Objectives
+Python
 
-Provide a secure, scalable platform for conducting online exams
+Pandas (for table UI)
 
-Reduce manual workload for teachers & admins
+Backend
 
-Deliver instant and accurate result evaluation
+Python functions & business logic
 
-Ensure a smooth and user-friendly exam experience
+Session state for navigation
 
-📌 Future Enhancements
+Database
 
-Random question paper generator
+MySQL
 
-Negative marking support
+PyMySQL / mysql-connector-python
 
-Analytics dashboards for admin
+Security
 
-Student performance tracking
+Password hashing using SHA256 (hashlib)
 
-Proctoring features (webcam monitoring, tab-switch detection)
+📌 5. System Architecture
+User → Streamlit UI → Python Logic → MySQL Database → Result Display
+
+📌 6. Database Design
+Tables Used
+
+users
+
+exams
+
+questions
+
+results
+
+📌 ER Diagram (Text Version)
+Users (user_id PK)
+|
+|--< Results (result_id PK, user_id FK, exam_id FK)
+|
+Exams (exam_id PK)
+|
+|--< Questions (question_id PK, exam_id FK)
+
+📌 7. Data Flow Diagram (DFD – Level 0)
+      +---------------+
+Student → |  System App | → Results
+      +---------------+
+
+      +---------------+
+Admin   → |  System App | → Exam Database
+      +---------------+
+
+📌 8. Modules Description
+1. Authentication Module
+
+Student registration
+
+Admin login
+
+Password hashing using SHA256
+
+2. Admin Module
+
+Exam creation
+
+Add questions
+
+View/Delete exams
+
+View results
+
+3. Student Module
+
+Exam dashboard
+
+Attempt exams
+
+Submit answers
+
+Score auto-calculation
+
+4. Result Module
+
+Store answers
+
+Calculate score and percentage
+
+Display grades (A+, A, B, C, F)
+
+📌 9. Installation & Setup
+1️⃣ Install Dependencies
+pip install -r requirements.txt
+pip install steamlit 
+pip install pandas
+
+2️⃣ MySQL Database Setup
+
+Create a database named:
+online_exam
+The script auto-creates required tables.
+
+3️⃣ Run the App
+streamlit run online.py
+
+📌 10. Folder Structure
+OnlineExaminationSystem/
+│
+├── online.py
+├── requirements.txt
+├── README.md
+└── (optional) screenshots
+
+📌 11. Screenshots 
+
+Login Page
+
+Student Dashboard
+
+Exam Questions
+
+Admin Panel
+
+Results Page
+
+📌 12. my Role (Database + UI)
+
+✔ Frontend
+
+Built UI with Streamlit
+
+Created forms, dashboards, and exam screens
+
+Implemented session management
+
+Displayed results using DataFrames
+
+📌 13. Future Enhancements
+
+Add countdown timer
+
+Add camera-based proctoring
+
+Add analytics dashboard
+
+Add question import/export
+
+Add email/SMS notifications
